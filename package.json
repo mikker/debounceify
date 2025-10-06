@@ -3,9 +3,9 @@
   "version": "1.1.0",
   "description": "Tiny async debouncer",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
-    "standard": "^16.0.3",
+    "prettier": "^3.6.2",
+    "prettier-config-holepunch": "^1.0.0",
     "tape": "^5.1.1"
   },
   "repository": {
@@ -13,7 +13,9 @@
     "url": "https://github.com/mafintosh/debounceify.git"
   },
   "scripts": {
-    "test": "standard && tape test.js"
+    "format": "prettier --write .",
+    "lint": "prettier --check .",
+    "test": "tape test.js"
   },
   "author": "Mathias Buus (@mafintosh)",
   "license": "MIT",
