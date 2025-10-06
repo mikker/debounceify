@@ -1,8 +1,8 @@
-module.exports = function debounce (worker, context = null) {
+module.exports = function debounce(worker, context = null) {
   debounced.running = null
   return debounced
 
-  async function debounced () {
+  async function debounced() {
     if (debounced.running !== null) {
       try {
         await debounced.running

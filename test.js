@@ -37,7 +37,7 @@ tape('debounced throws', async function (t) {
     return cnt
   })
 
-  d().catch(err => t.same(err, new Error('sup')))
+  d().catch((err) => t.same(err, new Error('sup')))
   d()
   d()
   d()
