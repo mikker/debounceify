@@ -1,7 +1,7 @@
-const tape = require('tape')
+const test = require('brittle')
 const debounce = require('./')
 
-tape('basic', async function (t) {
+test('basic', async function (t) {
   t.plan(2)
   const d = debounce(() => {
     t.pass('called')
@@ -11,7 +11,7 @@ tape('basic', async function (t) {
   await d()
 })
 
-tape('debounced returns', async function (t) {
+test('debounced returns', async function (t) {
   t.plan(3)
 
   let cnt = 0
@@ -21,10 +21,10 @@ tape('debounced returns', async function (t) {
   })
 
   for (let i = 0; i < 100; i++) d()
-  t.same(await d(), 1)
+  t.alike(await d(), 1)
 })
 
-tape('debounced throws', async function (t) {
+test('debounced throws', async function (t) {
   t.plan(4)
 
   let cnt = 0
@@ -37,9 +37,9 @@ tape('debounced throws', async function (t) {
     return cnt
   })
 
-  d().catch((err) => t.same(err, new Error('sup')))
+  d().catch((err) => t.alike(err.message, 'sup'))
   d()
   d()
   d()
-  t.same(await d(), 2)
+  t.alike(await d(), 2)
 })
